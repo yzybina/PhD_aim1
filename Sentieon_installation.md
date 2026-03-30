@@ -1,3 +1,6 @@
+03/30/26
+Following instructions from https://support.sentieon.com/docs/quick_start/#what-do-you-need-to-get-started and email from Don
+
 Log in to my /home directory on prism
 
 ```
@@ -25,7 +28,7 @@ tar xvzf sentieon-genomics-202503.02.tar.gz
 export SENTIEON_INSTALL_DIR=/private/home/yzybina/sentieon/sentieon-genomics-202503.02
 
 #For improved performance when using NFS storage, set the SENTIEON_TMPDIR environmental variable to point to local scratch fast storage.
-export SENTIEON_TMPDIR=/tmp
+export SENTIEON_TMPDIR=/data/tmp
 ```
 
 
@@ -40,3 +43,21 @@ Here is what is included in the package:
   * reference: a directory that contains human genome reference files and database files of known SNP sites.
   * models: a directory that contains DNAscope model files.
   * FASTQ files: sample sequence files.
+
+Before running the script, you need to make sure that the environment variables are properly set as described above, including the license and path to the directory.
+Then open your favorite editor to edit the user settings in sentieon_quickstart.sh:
+```
+# Update with the fullpath location of your sample fastq
+set -ex
+data_dir="/private/home/yzybina/sentieon/sentieon_quickstart"
+fastq_1="/private/home/yzybina/sentieon/sentieon_quickstart/1.fastq.gz"
+fastq_2="/private/home/yzybina/sentieon/sentieon_quickstart/2.fastq.gz"
+
+SENTIEON_INSTALL_DIR=/private/home/yzybina/sentieon/sentieon-genomics-202503.02
+
+# Update with the location of temporary fast storage and uncomment
+SENTIEON_TMPDIR=/data/tmp
+
+Then run the test using sbatch sentieon_quickstart.sh
+```
+
