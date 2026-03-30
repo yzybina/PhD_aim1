@@ -58,6 +58,5 @@ SENTIEON_INSTALL_DIR=/private/home/yzybina/sentieon/sentieon-genomics-202503.02
 # Update with the location of temporary fast storage and uncomment
 SENTIEON_TMPDIR=/data/tmp
 
-Then run the test using sbatch sentieon_quickstart.sh
 ```
-
+Then run the test using sbatch sentieon_quickstart.sh
